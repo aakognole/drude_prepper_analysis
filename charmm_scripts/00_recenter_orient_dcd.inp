@@ -1,0 +1,83 @@
+* Merge and recenter DCDs
+*
+
+DIMENS CHSIZE 3000000 MAXRES 3000000
+
+ioformat extended
+
+! How many step5_#.dcd files you have
+set ntraj 20
+
+! Read parameter files
+stream 00_toppar_drude.str
+stream ../../step2_drude.str
+
+! Read psf and crd files
+read psf card name ../../step2_drude.psf
+read coor card name ../../step2_drude.crd
+
+! Orient the initial coordinate to macromolecule
+define system sele @PROT end
+coor orient sele system .and. .not. hydrogen end
+write coor pdb name step2_drude.orient.full.pdb
+write coor card name step2_drude.orient.full.crd
+read coor card name step2_drude.orient.full.crd
+
+coor copy comp
+
+! Define selections to use
+define system sele all end
+define PROT sele @prot end
+define CARB sele @carb end
+
+define BB   sele ( ( type C   .or. type O   .or. type N   .or. type CA  .or. -
+                     type P   .or. type O1P .or. type O2P .or. type O5' .or. -
+                     type C5' .or. type C4' .or. type C3' .or. type O3' ) .and. PROT ) .or. -
+                 ( ( type C+ .or. ( type O5 .and. .bonded. type C1 ) .or. ( type O6 .and. .bonded. type C2 ) ) .and. CARB ) end
+define SC   sele .not. BB .and. .not. hydrogen .and. ( PROT .or. CARB ) end
+
+bomlev -2
+
+! Read dcd files
+set u 10
+set d 1
+label read_dcd
+open read unit @u file name step5_@d.dcd
+incr u by 1
+incr d by 1
+if d .le. @ntraj goto read_dcd
+
+bomlev -2
+set u 10
+set d 1
+traj iread @u nread 1
+label query_loop
+trajectory query unit @u
+incr u by 1
+incr d by 1
+if @d .le. @ntraj goto query_loop
+bomlev 0
+
+! Initiate new dcd files to write output
+open write unit 8 file name prod-full.dcd
+open write unit 9 file name prod-nowat.dcd
+
+! setup simulation box
+crystal define @XTLTYPE @A @B @C @ALPHA @BETA @GAMMA
+crystal build cutoff 16
+
+! Image statemnts for those molecules that should be recentered
+image byseg sele PROT end
+image byresidue sele all .and. .not. PROT end
+
+! first selection picks up those atoms that will be written to new trajectory
+! second selection is used to define the reference around which solvent is recentered 
+ prnlev 1 ! uncomment if you want to suppress massive amount of messages about recentering
+
+merge coor firstu 10 nunit @ntraj output 8 -
+  select all end recenter orient sele PROT .and. BB end noch
+
+merge coor firstu 10 nunit @ntraj output 8 -
+  select all .and. .not. (resname SWM4) end recenter orient sele PROT .and. BB end noch
+
+stop

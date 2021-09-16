@@ -1,0 +1,61 @@
+* Calculate dipole moment of selected atoms
+*
+
+DIMENS CHSIZE 3000000 MAXRES 3000000
+
+ioformat extended
+
+! define your system (use small caps)
+set system cas9-sgrna-dna-proa
+
+! Read paramter files
+stream 00_toppar_drude.str
+stream ../../step2_drude.str
+
+! Read psf and crd
+read psf card name ../../step2_drude.psf
+read coor card name ../../step2_drude.crd
+coor copy comp
+
+open read unit 51 file name prod-full.dcd
+
+! Open the output file
+open write card unit 10 name dipole_aasc_@system.txt
+write title unit 10
+* Frame Resid Resname Charge XDIP YDIP ZDIP RDIP
+
+bomlev -2
+traj iread 51 nread 1
+traj query unit 51
+set trjmax ?NFILE 
+set atframe 1
+set skip 100
+set skipstep 100
+
+!--> atom selection for amino acid side chain
+define not_sc sele (type C .or. type DC .or. type O .or. type DO .or. type LPOA .or. type LPOB) .or. -
+       (type N .or. type DN .or. type HN .or. type CA .or. type DCA .or. type HA*) .or. -
+       (resname GLY) .or. (type HT* .or. type OT* .or. type DOT* .or. type LPT*) end
+! Example: coor dipo sele segid PROA .and. resid @res1 .and. .not. not_sc end
+
+! Define residue range
+set firstres 1
+set lastres 1366
+
+label traj_loop
+    traj read
+    if @atframe .ne. @skip goto skip_frame
+        set res1 @firstres
+    	label res_loop
+	    coor dipo sele segid PROA .and. resid @res1 .and. .not. not_sc end
+    	    write title unit 10
+    	    * @atframe @res1 ?SELRESN ?CHARGE ?XDIP ?YDIP ?ZDIP ?RDIP
+
+    	    incr res1 by 1
+    	    if @res1 .le. @lastres goto res_loop
+	    incr skip by @skipstep
+	label skip_frame
+    	incr atframe by 1
+    if @atframe .le. @trjmax goto traj_loop
+
+stop

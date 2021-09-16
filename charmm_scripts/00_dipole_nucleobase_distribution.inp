@@ -1,0 +1,78 @@
+* Calculate dipole moment of selected atoms
+*
+
+DIMENS CHSIZE 3000000 MAXRES 3000000
+
+ioformat extended
+
+! Define system name (use small caps)
+set system cas9-sgrna-dna-proa
+
+! Read parameter files
+stream 00_toppar_drude.str
+stream ../../step2_drude.str
+
+! Read psf and crd files
+read psf card name ../../step2_drude.psf
+read coor card name ../../step2_drude.crd
+coor copy comp
+
+open read unit 51 file name prod-full.dcd
+
+! Open the output file
+open write card unit 10 name dipole_nbrna_@system.txt
+write title unit 10
+* Frame Resid Resname Charge XDIP YDIP ZDIP RDIP
+
+! Open the output file
+open write card unit 11 name dipole_nbdna_@system.txt
+write title unit 11
+* Frame Resid Resname Charge XDIP YDIP ZDIP RDIP
+
+bomlev -2
+
+traj iread 51 nread 1
+traj query unit 51
+set trjmax ?NFILE 
+set atframe 1
+set skip 100
+set skipstep 100
+
+!--> atom selection for dipole moment of a nucleobase (A/T/U/G/C)
+define not_base sele (type P 	.or. type DP	.or. type O1P	.or. type DO1P	-
+	        .or. type O2P	.or. type DO2P	.or. type O5'	.or. type DO5'	-
+		.or. type C5'	.or. type DC5'	.or. type H5'	.or. type H5''	-
+		.or. type C4'	.or. type DC4'	.or. type H4'	.or. type O4'	-
+		.or. type DO4'	.or. type LPRA	.or. type LPRB	.or. type LPX	-
+		.or. type C1'	.or. type DC1'	.or. type H1'	.or. type C2'	-
+		.or. type DC2'	.or. type H2''	.or. type O2'	.or. type DO2'	-
+		.or. type H2'	.or. type LPHA	.or. type LPHB	.or. type C3'	-
+		.or. type DC3'	.or. type H3'	.or. type O3'	.or. type DO3'  ) end
+! Example: coor dipo sele segid RNAA .and. resid @res1 .and. .not. not_base end
+
+! Define the residue number range
+set firstres 1
+set lastres 98
+
+label traj_loop
+    traj read
+    if @atframe .ne. @skip goto skip_frame
+        set res1 @firstres
+    	label res_loop
+	    coor dipo sele segid RNAA .and. resid @res1 .and. .not. not_base end
+    	    write title unit 10
+    	    * @atframe @res1 ?SELRESN ?CHARGE ?XDIP ?YDIP ?ZDIP ?RDIP
+
+            coor dipo sele (segid DNAA .or. segid DNAB) .and. resid @res1 .and. .not. not_base end
+            write title unit 11
+            * @atframe @res1 ?SELRESN ?CHARGE ?XDIP ?YDIP ?ZDIP ?RDIP
+
+    	    incr res1 by 1
+    	    incr res2 by 1
+    	    if @res1 .le. @lastres goto res_loop
+	incr skip by @skipstep
+	label skip_frame
+    incr atframe by 1
+    if @atframe .le. @trjmax goto traj_loop
+
+stop
