@@ -47,7 +47,6 @@ incr u by 1
 incr d by 1
 if d .le. @ntraj goto read_dcd
 
-bomlev -2
 set u 10
 set d 1
 traj iread @u nread 1

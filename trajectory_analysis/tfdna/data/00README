@@ -1,0 +1,9 @@
+Here are raw data for the TF/DNA system from 200 ns MD simulations from NAMD. Snapshots are taken every 10 ps so there is 20000 data points.
+
+As there are protein (transcript factor) and dsDNA in the system, we compute RMSDs by align the whole system to DNA (prefered) or protein.
+
+rmsd1.tfdna.data contains RMSDs of protein (all heavy atoms) and DNA (all heavy atoms) when aligning with DNA.
+rmsd2.tfdna.data contains RMSDs of protein (all heavy atoms) and DNA (all heavy atoms, this might not be useful)when aligning with protein.
+
+- Jing
+

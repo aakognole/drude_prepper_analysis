@@ -1,0 +1,6 @@
+Here are raw data for the LeuT system from 200 ns MD simulations from OpenMM. Snapshots are taken every 10 ps so there is 20000 data points.
+
+rmsd.leut.new.data contains RMSDs of all heavy atoms in the protein. This is after Payal's correction in impropers for lipids.
+
+- Jing
+
