@@ -124,12 +124,12 @@ print("TOTE", e)
 E.append(("TOTE", e))
 print('\n')
 
-print("BOND+DRUD %12.5f" % (E[0][1]+E[7][1]))
-print("ANGL+UREY %12.5f" % (E[1][1]+E[3][1]))
-print("DIHE+CMAP %12.5f" % (E[2][1]+E[5][1]))
-print("IMPR %12.5f" % (E[4][1]))
-print("ELEC+VDW %12.5f" % (E[6][1]))
-print("TOTE %12.5f" % (E[9][1]))
+print("BOND+DRUD %.5f" % (E[0][1]+E[7][1]))
+print("ANGL+UREY %.5f" % (E[1][1]+E[3][1]))
+print("DIHE+CMAP %.5f" % (E[2][1]+E[5][1]))
+print("IMPR %.5f" % (E[4][1]))
+print("ELEC+VDW %.5f" % (E[6][1]))
+print("TOTE %.5f" % (E[9][1]))
 
 exit()
 

@@ -11,9 +11,9 @@
 A=`grep "SET A =" ../step2_drude.str | awk '{print $4}'`
 B=`grep "SET B =" ../step2_drude.str | awk '{print $4}'`
 C=`grep "SET C =" ../step2_drude.str | awk '{print $4}'`
-echo "BOXLX    = $A" > step3_charmm2omm.str
-echo "BOXLY    = $B" >> step3_charmm2omm.str
-echo "BOXLZ    = $C" >> step3_charmm2omm.str
+echo " BOXLX    = $A" > step3_charmm2omm.str
+echo " BOXLY    = $B" >> step3_charmm2omm.str
+echo " BOXLZ    = $C" >> step3_charmm2omm.str
 
 init=step3_charmm2omm
 istep=openmm_energy

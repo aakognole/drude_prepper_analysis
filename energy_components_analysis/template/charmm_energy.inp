@@ -46,7 +46,7 @@ set ECMAP ?CMAP !  - 2D dihedral cross term energy correction map
 calc ENONB = ?VDW + ?ELEC + ?IMNB + ?IMEL + ?EWKS + ?EWSE + ?EWEX
 calc ETOTE = @EBOND + @EANGL +@EDIHE + @EUREY + @EIMPR + @ECMAP + @ENONB
 calc ELRC = @EENER - @ETOTE
-calc ENONB = ?VDW + ?ELEC + ?IMNB + ?IMEL + ?EWKS + ?EWSE + ?EWEX + @ELRC
+calc ENONB = ?VDW + ?ELEC + ?IMNB + ?IMEL + ?EWKS + ?EWSE + ?EWEX !+ @ELRC
 calc ETOTE = @EBOND + @EANGL +@EDIHE + @EUREY + @EIMPR + @ECMAP + @ENONB
 calc EVDW = ?VDW + ?IMNB
 calc EELC = @ENONB - @EVDW

@@ -1,17 +1,16 @@
  set xtltype  orthorhombic
- set a 110
- set b 110
- set c 110
+ set a 64
+ set b 64
+ set c 64
  set alpha 90.0
  set beta  90.0
  set gamma 90.0
- set fftx  120
- set ffty  120
- set fftz  120
- set xcen  2.717418461e-02
- set ycen  -0.161653499
- set zcen  5.508980034e-02
+ set fftx  72
+ set ffty  72
+ set fftz  72
+ set xcen  2.284024121e-02
+ set ycen  2.697888072e-02
+ set zcen  1.682226444e-02
  set nprot 1
  set prot0 proa
- set ncarb 1
- set carb0 cara
+ set ncarb 0

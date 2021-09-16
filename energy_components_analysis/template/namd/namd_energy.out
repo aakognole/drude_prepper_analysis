@@ -4,10 +4,9 @@ Charm++: standalone mode (not using charmrun)
 Charm++> Running in Multicore mode: 1 threads (PEs)
 Charm++> Using recursive bisection (scheme 3) for topology aware partitions
 Converse/Charm++ Commit ID: v6.10.2-0-g7bf00fa-namd-charm-6.10.2-build-2020-Aug-05-556
-Warning> Randomization of virtual memory (ASLR) is turned on in the kernel, thread migration may not work! Run 'echo 0 > /proc/sys/kernel/randomize_va_space' as root to disable it, or try running with '+isomalloc_sync'.
 CharmLB> Load balancer assumes all CPUs are same.
-Charm++> Running on 1 hosts (1 sockets x 4 cores x 1 PUs = 4-way SMP)
-Charm++> cpu topology info is gathered in 0.000 seconds.
+Charm++> Running on 1 hosts (1 sockets x 16 cores x 2 PUs = 32-way SMP)
+Charm++> cpu topology info is gathered in 0.001 seconds.
 Info: NAMD 2.14 for Linux-x86_64-multicore
 Info: 
 Info: Please visit http://www.ks.uiuc.edu/Research/namd/
@@ -18,24 +17,24 @@ Info: in all publications reporting results obtained with NAMD.
 Info: 
 Info: Based on Charm++/Converse 61002 for multicore-linux-x86_64-iccstatic
 Info: Built Mon Aug 24 10:08:36 CDT 2020 by jim on belfast.ks.uiuc.edu
-Info: 1 NAMD  2.14  Linux-x86_64-multicore  1    pamlico  akognole
+Info: 1 NAMD  2.14  Linux-x86_64-multicore  1    kickout  akognole
 Info: Running on 1 processors, 1 nodes, 1 physical nodes.
 Info: CPU topology information available.
-Info: Charm++/Converse parallel runtime startup completed at 0.00221026 s
+Info: Charm++/Converse parallel runtime startup completed at 0.00197753 s
 CkLoopLib is used in SMP with simple dynamic scheduling (converse-level notification)
-Info: 52.9961 MB of memory in use based on /proc/self/stat
+Info: 52.2109 MB of memory in use based on /proc/self/stat
 Info: Configuration file is namd_energy.inp
-Info: Working in the current directory /home/akognole/scratch/drude_prepper/e_check/ha/template/namd
+Info: Working in the current directory /state/partition1/home/akognole/scratch/drude_prepper/energy_components_analysis/template/namd
 TCL: Suspending until startup complete.
 Warning: Setting water model to 'swm4' (SWM4-DP) for Drude polarization.
 Info: SIMULATION PARAMETERS:
 Info: TIMESTEP               0.5
 Info: NUMBER OF STEPS        0
 Info: STEPS PER CYCLE        20
-Info: PERIODIC CELL BASIS 1  110 0 0
-Info: PERIODIC CELL BASIS 2  0 110 0
-Info: PERIODIC CELL BASIS 3  0 0 110
-Info: PERIODIC CELL CENTER   0 0 0.0550898
+Info: PERIODIC CELL BASIS 1  64 0 0
+Info: PERIODIC CELL BASIS 2  0 64 0
+Info: PERIODIC CELL BASIS 3  0 0 64
+Info: PERIODIC CELL CENTER   0 0 0.0168223
 Info: WRAPPING WATERS AROUND PERIODIC BOUNDARIES ON OUTPUT.
 Info: WRAPPING ALL CLUSTERS AROUND PERIODIC BOUNDARIES ON OUTPUT.
 Info: LOAD BALANCER  Centralized
@@ -105,7 +104,7 @@ Info: PARTICLE MESH EWALD (PME) ACTIVE
 Info: PME TOLERANCE               1e-06
 Info: PME EWALD COEFFICIENT       0.257952
 Info: PME INTERPOLATION ORDER     6
-Info: PME GRID DIMENSIONS         112 112 112
+Info: PME GRID DIMENSIONS         64 64 64
 Info: PME MAXIMUM GRID SPACING    1
 Info: Attempting to read FFTW data from FFTW_NAMD_2.14_Linux-x86_64-multicore.txt
 Info: Optimizing 6 FFT steps.  1... 2... 3... 4... 5... 6...   Done.
@@ -118,7 +117,7 @@ Info: RIGID BONDS TO HYDROGEN : ALL
 Info:         ERROR TOLERANCE : 1e-08
 Info:          MAX ITERATIONS : 100
 Info: RIGID WATER USING SETTLE ALGORITHM
-Info: RANDOM NUMBER SEED     1627251610
+Info: RANDOM NUMBER SEED     1631809829
 Info: USE HYDROGEN BONDS?    NO
 Info: COORDINATE PDB         ../step2_drude.pdb
 Info: STRUCTURE FILE         ../step2_drude.psf
@@ -143,48 +142,46 @@ Info: 10 CROSSTERM
 Info: 173 VDW
 Info: 343 VDW_PAIRS
 Info: 38 NBTHOLE_PAIRS
-Warning: Ignored 77872 bonds with zero force constants.
+Warning: Ignored 16081 bonds with zero force constants.
 Warning: Will get H-H distance in rigid H2O from H-O-H angle.
-Warning: Ignored 40160 bonds with lone pairs.
+Warning: Ignored 8160 bonds with lone pairs.
 Warning: Will infer lonepair bonds from LPhost entries.
-Warning: Ignored 43812 bonds with Drude particles.
+Warning: Ignored 8523 bonds with Drude particles.
 Warning: Will use polarizability to assign Drude bonds.
 Warning: CORRECTION OF ZERO MASS ATOMS TURNED OFF BECAUSE LONE PAIRS ARE USED
-Info: TIME FOR READING PSF FILE: 3.60633
+Info: TIME FOR READING PSF FILE: 0.38017
 Info: Reading pdb file ../step2_drude.pdb
-Info: TIME FOR READING PDB FILE: 0.423289
+Info: TIME FOR READING PDB FILE: 0.0615845
 Info: 
-Info: LONG-RANGE LJ: APPLYING ANALYTICAL CORRECTIONS TO ENERGY AND PRESSURE
-Info: LONG-RANGE LJ: AVERAGE A AND B COEFFICIENTS 739809 AND 673.931
 Info: ****************************
 Info: STRUCTURE SUMMARY:
-Info: 208974 ATOMS
-Info: 171155 BONDS
-Info: 58726 ANGLES
-Info: 30815 DIHEDRALS
-Info: 1761 IMPROPERS
-Info: 719 CROSSTERMS
+Info: 41681 ATOMS
+Info: 33766 BONDS
+Info: 10178 ANGLES
+Info: 3293 DIHEDRALS
+Info: 185 IMPROPERS
+Info: 74 CROSSTERMS
 Info: 0 EXCLUSIONS
-Info: 118812 RIGID BONDS
-Info: 40250 LONE PAIRS
-Info: 43812 DRUDE ATOMS
-Info: 387360 DEGREES OF FREEDOM
-Info: 255924 DRUDE COM DEGREES OF FREEDOM
-Info: 131436 DRUDE BOND DEGREES OF FREEDOM
-Info: 43812 HYDROGEN GROUPS
+Info: 24392 RIGID BONDS
+Info: 8164 LONE PAIRS
+Info: 8523 DRUDE ATOMS
+Info: 76159 DEGREES OF FREEDOM
+Info: 50590 DRUDE COM DEGREES OF FREEDOM
+Info: 25569 DRUDE BOND DEGREES OF FREEDOM
+Info: 8523 HYDROGEN GROUPS
 Info: 5 ATOMS IN LARGEST HYDROGEN GROUP
-Info: 41464 MIGRATION GROUPS
-Info: 19 ATOMS IN LARGEST MIGRATION GROUP
-Info: TOTAL MASS = 771382 amu
-Info: TOTAL CHARGE = -6.18752e-05 e
-Info: MASS DENSITY = 0.962389 g/cm^3
-Info: ATOM DENSITY = 0.157005 atoms/A^3
+Info: 8299 MIGRATION GROUPS
+Info: 15 ATOMS IN LARGEST MIGRATION GROUP
+Info: TOTAL MASS = 151265 amu
+Info: TOTAL CHARGE = -1.00955e-05 e
+Info: MASS DENSITY = 0.958203 g/cm^3
+Info: ATOM DENSITY = 0.159 atoms/A^3
 Info: *****************************
 Info: 
-Info: Entering startup at 4.19572 s, 123.027 MB of memory in use
-Info: Startup phase 0 took 0.000556136 s, 123.027 MB of memory in use
-Info: ADDED 589462 IMPLICIT EXCLUSIONS
-Info: Startup phase 1 took 0.23206 s, 179.496 MB of memory in use
+Info: Entering startup at 0.527242 s, 74.707 MB of memory in use
+Info: Startup phase 0 took 0.000164981 s, 74.707 MB of memory in use
+Info: ADDED 100931 IMPLICIT EXCLUSIONS
+Info: Startup phase 1 took 0.0174626 s, 85.25 MB of memory in use
 Info: NONBONDED TABLE R-SQUARED SPACING: 0.0625
 Info: NONBONDED TABLE SIZE: 769 POINTS
 Info: ABSOLUTE IMPRECISION IN FAST TABLE FORCE: 2.64698e-23 AT 11.9138
@@ -203,52 +200,52 @@ Info: RELATIVE IMPRECISION IN VDWB TABLE ENERGY: 7.56853e-15 AT 11.9138
 Info: ABSOLUTE IMPRECISION IN VDWB TABLE FORCE: 3.87741e-26 AT 11.9138
 Info: RELATIVE IMPRECISION IN VDWB TABLE FORCE: 5.97409e-16 AT 11.9138
 Info: INCONSISTENCY IN VDWB TABLE ENERGY VS FORCE: 0.00150189 AT 0.251946
-Info: Startup phase 2 took 0.00229788 s, 179.496 MB of memory in use
-Info: Startup phase 3 took 3.8837e-05 s, 179.496 MB of memory in use
-Info: Startup phase 4 took 0.000346224 s, 179.496 MB of memory in use
-Info: Startup phase 5 took 4.0252e-05 s, 179.496 MB of memory in use
-Info: PATCH GRID IS 5 (PERIODIC) BY 5 (PERIODIC) BY 5 (PERIODIC)
+Info: Startup phase 2 took 0.0012369 s, 86.1641 MB of memory in use
+Info: Startup phase 3 took 3.199e-05 s, 86.1641 MB of memory in use
+Info: Startup phase 4 took 0.000138501 s, 86.4844 MB of memory in use
+Info: Startup phase 5 took 2.702e-05 s, 86.4844 MB of memory in use
+Info: PATCH GRID IS 3 (PERIODIC) BY 3 (PERIODIC) BY 3 (PERIODIC)
 Info: PATCH GRID IS 1-AWAY BY 1-AWAY BY 1-AWAY
-Info: REMOVING COM VELOCITY 0.0225769 -0.00224555 0.030186
-Info: LARGEST PATCH (61) HAS 1938 ATOMS
+Info: REMOVING COM VELOCITY -0.033571 0.0107637 0.0141012
+Info: LARGEST PATCH (13) HAS 1744 ATOMS
 Info: TORUS A SIZE 1 USING 0
 Info: TORUS B SIZE 1 USING 0
 Info: TORUS C SIZE 1 USING 0
 Info: TORUS MINIMAL MESH SIZE IS 1 BY 1 BY 1
 Info: Placed 100% of base nodes on same physical node as patch
-Info: Startup phase 6 took 0.0804774 s, 218.023 MB of memory in use
+Info: Startup phase 6 took 0.0088732 s, 95.8828 MB of memory in use
 Info: PME using 1 and 1 processors for FFT and reciprocal sum.
 Info: PME GRID LOCATIONS: 0
 Info: PME TRANS LOCATIONS: 0
 Info: PME USING 1 GRID NODES AND 1 TRANS NODES
 Info: Optimizing 4 FFT steps.  1... 2... 3... 4...   Done.
-Info: Startup phase 7 took 0.00244123 s, 218.023 MB of memory in use
-Info: Startup phase 8 took 7.7204e-05 s, 218.023 MB of memory in use
-Info: Startup phase 9 took 2.8709e-05 s, 218.023 MB of memory in use
-Info: Startup phase 10 took 2.2073e-05 s, 218.023 MB of memory in use
-Info: Startup phase 11 took 2.4212e-05 s, 218.023 MB of memory in use
+Info: Startup phase 7 took 0.000324411 s, 95.8828 MB of memory in use
+Info: Startup phase 8 took 2.7561e-05 s, 95.8828 MB of memory in use
+Info: Startup phase 9 took 2.054e-05 s, 95.8828 MB of memory in use
+Info: Startup phase 10 took 1.949e-05 s, 95.8828 MB of memory in use
+Info: Startup phase 11 took 2.112e-05 s, 95.8828 MB of memory in use
 LDB: Central LB being created...
-Info: Startup phase 12 took 0.000134484 s, 218.023 MB of memory in use
-Info: CREATING 2757 COMPUTE OBJECTS
-Info: Startup phase 13 took 0.00958285 s, 218.836 MB of memory in use
-Info: Startup phase 14 took 0.000109065 s, 218.836 MB of memory in use
-Info: Startup phase 15 took 0.000374513 s, 234.641 MB of memory in use
-Info: Finished startup at 4.52433 s, 234.641 MB of memory in use
+Info: Startup phase 12 took 4.872e-05 s, 95.8828 MB of memory in use
+Info: CREATING 601 COMPUTE OBJECTS
+Info: Startup phase 13 took 0.00102676 s, 95.8828 MB of memory in use
+Info: Startup phase 14 took 3.311e-05 s, 95.8828 MB of memory in use
+Info: Startup phase 15 took 7.158e-05 s, 98.8828 MB of memory in use
+Info: Finished startup at 0.556771 s, 98.8828 MB of memory in use
 
 TCL: Minimizing for 0 steps
 ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG            PRESSURE      GPRESSURE         VOLUME       PRESSAVG      GPRESSAVG           DRUDEBOND      DRBONDAVG
 
-ENERGY:       0    149954.9901     11897.4811      6889.2417       177.9768        -703661.0806     92527.1453         0.0000         0.0000         0.0000        -442214.2457         0.0000   -442214.2457   -442214.2457         0.0000          29406.3760    -45933.9390   1331000.0000     29406.3760    -45933.9390              0.0000         0.0000
+ENERGY:       0     30415.7562      1192.2662       705.5670        11.8747        -137382.7748     16196.1338         0.0000         0.0000         0.0000         -88861.1768         0.0000    -88861.1768    -88861.1768         0.0000          28019.0345    -48928.1327    262144.0000     28019.0345    -48928.1327              0.0000         0.0000
 
 OPENING EXTENDED SYSTEM TRAJECTORY FILE
 WRITING EXTENDED SYSTEM TO OUTPUT FILE AT STEP 0
 CLOSING EXTENDED SYSTEM TRAJECTORY FILE
 WRITING COORDINATES TO OUTPUT FILE AT STEP 0
 COORDINATE DCD FILE step4_equilibration.dcd WAS NOT CREATED
-The last position output (seq=-2) takes 0.012 seconds, 381.191 MB of memory in use
+The last position output (seq=-2) takes 0.001 seconds, 124.945 MB of memory in use
 WRITING VELOCITIES TO OUTPUT FILE AT STEP 0
-The last velocity output (seq=-2) takes 0.004 seconds, 381.191 MB of memory in use
+The last velocity output (seq=-2) takes 0.001 seconds, 124.945 MB of memory in use
 ====================================================
 
-WallClock: 10.661716  CPUTime: 10.649892  Memory: 381.191406 MB
+WallClock: 1.323831  CPUTime: 1.316000  Memory: 124.945312 MB
 [Partition 0][Node 0] End of program

@@ -6,7 +6,7 @@
 stream toppar_drude/toppar_drude_master_protein_2019g.str   ! master, includes protein, water and ions (must be read first)
 stream toppar_drude/toppar_drude_d_aminoacids_2019g.str   ! D-aminoacids
 !stream toppar_drude/toppar_drude_carbohydrate_2019a.str   ! hexapyranoses
-stream toppar_drude/toppar_drude_carbohydrate_2019a_ahaile.str   ! hexapyranoses
+!stream toppar_drude/toppar_drude_carbohydrate_2019a_ahaile.str   ! hexapyranoses
 stream toppar_drude/toppar_drude_nucleic_acid_2017c.str   ! DNA
 stream toppar_drude/toppar_drude_lipid_2017c.str   ! lipid
 stream toppar_drude/toppar_drude_model_2019g.str   ! model compounds

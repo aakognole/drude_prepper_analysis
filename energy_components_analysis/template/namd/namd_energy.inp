@@ -50,7 +50,7 @@ switchdist          10.0;               # cutoff - 2.
                                         # cutoff - where you stop accounting for nonbond interactions.
                                         # correspondence in charmm:
                                         # (cutnb,ctofnb,ctonnb = pairlistdist,cutoff,switchdist)
-LJcorrection        yes
+LJcorrection        no;
 pairlistdist        16.0;               # stores the all the pairs with in the distance it should be larger
                                         # than cutoff( + 2.) 
 stepspercycle       20;                 # 20 redo pairlists every ten steps

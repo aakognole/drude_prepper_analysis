@@ -1,3 +1,3 @@
- BOXLX    = 110
- BOXLY    = 110
- BOXLZ    = 110
+ BOXLX    = 64
+ BOXLY    = 64
+ BOXLZ    = 64
