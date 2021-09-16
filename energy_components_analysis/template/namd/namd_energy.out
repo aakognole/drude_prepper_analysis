@@ -1,0 +1,254 @@
+Charm++> No provisioning arguments specified. Running with a single PE.
+         Use +auto-provision to fully subscribe resources or +p1 to silence this message.
+Charm++: standalone mode (not using charmrun)
+Charm++> Running in Multicore mode: 1 threads (PEs)
+Charm++> Using recursive bisection (scheme 3) for topology aware partitions
+Converse/Charm++ Commit ID: v6.10.2-0-g7bf00fa-namd-charm-6.10.2-build-2020-Aug-05-556
+Warning> Randomization of virtual memory (ASLR) is turned on in the kernel, thread migration may not work! Run 'echo 0 > /proc/sys/kernel/randomize_va_space' as root to disable it, or try running with '+isomalloc_sync'.
+CharmLB> Load balancer assumes all CPUs are same.
+Charm++> Running on 1 hosts (1 sockets x 4 cores x 1 PUs = 4-way SMP)
+Charm++> cpu topology info is gathered in 0.000 seconds.
+Info: NAMD 2.14 for Linux-x86_64-multicore
+Info: 
+Info: Please visit http://www.ks.uiuc.edu/Research/namd/
+Info: for updates, documentation, and support information.
+Info: 
+Info: Please cite Phillips et al., J. Chem. Phys. 153:044130 (2020) doi:10.1063/5.0014475
+Info: in all publications reporting results obtained with NAMD.
+Info: 
+Info: Based on Charm++/Converse 61002 for multicore-linux-x86_64-iccstatic
+Info: Built Mon Aug 24 10:08:36 CDT 2020 by jim on belfast.ks.uiuc.edu
+Info: 1 NAMD  2.14  Linux-x86_64-multicore  1    pamlico  akognole
+Info: Running on 1 processors, 1 nodes, 1 physical nodes.
+Info: CPU topology information available.
+Info: Charm++/Converse parallel runtime startup completed at 0.00221026 s
+CkLoopLib is used in SMP with simple dynamic scheduling (converse-level notification)
+Info: 52.9961 MB of memory in use based on /proc/self/stat
+Info: Configuration file is namd_energy.inp
+Info: Working in the current directory /home/akognole/scratch/drude_prepper/e_check/ha/template/namd
+TCL: Suspending until startup complete.
+Warning: Setting water model to 'swm4' (SWM4-DP) for Drude polarization.
+Info: SIMULATION PARAMETERS:
+Info: TIMESTEP               0.5
+Info: NUMBER OF STEPS        0
+Info: STEPS PER CYCLE        20
+Info: PERIODIC CELL BASIS 1  110 0 0
+Info: PERIODIC CELL BASIS 2  0 110 0
+Info: PERIODIC CELL BASIS 3  0 0 110
+Info: PERIODIC CELL CENTER   0 0 0.0550898
+Info: WRAPPING WATERS AROUND PERIODIC BOUNDARIES ON OUTPUT.
+Info: WRAPPING ALL CLUSTERS AROUND PERIODIC BOUNDARIES ON OUTPUT.
+Info: LOAD BALANCER  Centralized
+Info: LOAD BALANCING STRATEGY  New Load Balancers -- DEFAULT
+Info: LDB PERIOD             4000 steps
+Info: FIRST LDB TIMESTEP     100
+Info: LAST LDB TIMESTEP     -1
+Info: LDB BACKGROUND SCALING 1
+Info: HOM BACKGROUND SCALING 1
+Info: PME BACKGROUND SCALING 1
+Info: MIN ATOMS PER PATCH    40
+Info: INITIAL TEMPERATURE    303.15
+Info: CENTER OF MASS MOVING INITIALLY? NO
+Info: DIELECTRIC             1
+Info: EXCLUDE                SCALED ONE-FOUR
+Info: 1-4 ELECTROSTATICS SCALED BY 1
+Info: MODIFIED 1-4 VDW PARAMETERS WILL BE USED
+Info: DCD FILENAME           step4_equilibration.dcd
+Info: DCD FREQUENCY          5000
+Info: DCD FIRST STEP         5000
+Info: DCD FILE WILL CONTAIN UNIT CELL DATA
+Info: XST FILENAME           step4_equilibration.xst
+Info: XST FREQUENCY          5000
+Info: NO VELOCITY DCD OUTPUT
+Info: NO FORCE DCD OUTPUT
+Info: OUTPUT FILENAME        step4_equilibration
+Info: BINARY OUTPUT FILES WILL BE USED
+Info: RESTART FILENAME       step4_equilibration.restart
+Info: RESTART FREQUENCY      5000
+Info: BINARY RESTART FILES WILL BE USED
+Info: SWITCHING ACTIVE
+Info: SWITCHING ON           10
+Info: SWITCHING OFF          12
+Info: PAIRLIST DISTANCE      16
+Info: PAIRLIST SHRINK RATE   0.01
+Info: PAIRLIST GROW RATE     0.01
+Info: PAIRLIST TRIGGER       0.3
+Info: PAIRLISTS PER CYCLE    2
+Info: PAIRLISTS ENABLED
+Info: MARGIN                 0.555
+Info: HYDROGEN GROUP CUTOFF  2.5
+Info: PATCH DIMENSION        19.055
+Info: ENERGY OUTPUT STEPS    250
+Info: CROSSTERM ENERGY INCLUDED IN DIHEDRAL
+Info: TIMING OUTPUT STEPS    5000
+Info: DRUDE MODEL DUAL THERMOSTAT IS ACTIVE
+Info: DRUDE BOND TEMPERATURE 1
+Info: DRUDE DAMPING COEFFICIENT IS 20 INVERSE PS
+Info: DRUDE HARD WALL RESTRAINT IS ACTIVE FOR DRUDE BONDS
+Info: DRUDE MAXIMUM BOND LENGTH BEFORE RESTRAINT IS   0.2
+Info: DRUDE NBTHOLE IS ACTIVE
+Info: DRUDE NBTHOLE RADIUS IS   5
+Info: LANGEVIN DYNAMICS ACTIVE
+Info: LANGEVIN TEMPERATURE   303.15
+Info: LANGEVIN USING BBK INTEGRATOR
+Info: LANGEVIN DAMPING COEFFICIENT IS 5 INVERSE PS
+Info: LANGEVIN DYNAMICS NOT APPLIED TO HYDROGENS
+Info: LANGEVIN PISTON PRESSURE CONTROL ACTIVE
+Info:        TARGET PRESSURE IS 1.01325 BAR
+Info:     OSCILLATION PERIOD IS 50 FS
+Info:             DECAY TIME IS 25 FS
+Info:     PISTON TEMPERATURE IS 303.15 K
+Info:       PRESSURE CONTROL IS GROUP-BASED
+Info:    INITIAL STRAIN RATE IS 0 0 0
+Info:       CELL FLUCTUATION IS ISOTROPIC
+Info: PARTICLE MESH EWALD (PME) ACTIVE
+Info: PME TOLERANCE               1e-06
+Info: PME EWALD COEFFICIENT       0.257952
+Info: PME INTERPOLATION ORDER     6
+Info: PME GRID DIMENSIONS         112 112 112
+Info: PME MAXIMUM GRID SPACING    1
+Info: Attempting to read FFTW data from FFTW_NAMD_2.14_Linux-x86_64-multicore.txt
+Info: Optimizing 6 FFT steps.  1... 2... 3... 4... 5... 6...   Done.
+Info: Writing FFTW data to FFTW_NAMD_2.14_Linux-x86_64-multicore.txt
+Info: FULL ELECTROSTATIC EVALUATION FREQUENCY      1
+Info: USING VERLET I (r-RESPA) MTS SCHEME.
+Info: C1 SPLITTING OF LONG RANGE ELECTROSTATICS
+Info: PLACING ATOMS IN PATCHES BY HYDROGEN GROUPS
+Info: RIGID BONDS TO HYDROGEN : ALL
+Info:         ERROR TOLERANCE : 1e-08
+Info:          MAX ITERATIONS : 100
+Info: RIGID WATER USING SETTLE ALGORITHM
+Info: RANDOM NUMBER SEED     1627251610
+Info: USE HYDROGEN BONDS?    NO
+Info: COORDINATE PDB         ../step2_drude.pdb
+Info: STRUCTURE FILE         ../step2_drude.psf
+Info: PARAMETER file: CHARMM format! 
+Info: PARAMETERS             ../toppar_drude/toppar_drude_master_protein_2019g.str
+Info: PARAMETERS             ../toppar_drude/toppar_drude_lipid_2017c.str
+Info: PARAMETERS             ../toppar_drude/toppar_drude_model_2019g.str
+Info: PARAMETERS             ../toppar_drude/toppar_drude_carbohydrate_2019a_ahaile.str
+Info: PARAMETERS             ../toppar_drude/toppar_drude_nucleic_acid_2017c.str
+Info: USING ARITHMETIC MEAN TO COMBINE L-J SIGMA PARAMETERS
+Info: SKIPPING rtf SECTION IN STREAM FILE
+Info: SKIPPING rtf SECTION IN STREAM FILE
+Info: SKIPPING rtf SECTION IN STREAM FILE
+Info: SKIPPING rtf SECTION IN STREAM FILE
+Info: SKIPPING rtf SECTION IN STREAM FILE
+Info: SUMMARY OF PARAMETERS:
+Info: 435 BONDS
+Info: 986 ANGLES
+Info: 3122 DIHEDRAL
+Info: 111 IMPROPER
+Info: 10 CROSSTERM
+Info: 173 VDW
+Info: 343 VDW_PAIRS
+Info: 38 NBTHOLE_PAIRS
+Warning: Ignored 77872 bonds with zero force constants.
+Warning: Will get H-H distance in rigid H2O from H-O-H angle.
+Warning: Ignored 40160 bonds with lone pairs.
+Warning: Will infer lonepair bonds from LPhost entries.
+Warning: Ignored 43812 bonds with Drude particles.
+Warning: Will use polarizability to assign Drude bonds.
+Warning: CORRECTION OF ZERO MASS ATOMS TURNED OFF BECAUSE LONE PAIRS ARE USED
+Info: TIME FOR READING PSF FILE: 3.60633
+Info: Reading pdb file ../step2_drude.pdb
+Info: TIME FOR READING PDB FILE: 0.423289
+Info: 
+Info: LONG-RANGE LJ: APPLYING ANALYTICAL CORRECTIONS TO ENERGY AND PRESSURE
+Info: LONG-RANGE LJ: AVERAGE A AND B COEFFICIENTS 739809 AND 673.931
+Info: ****************************
+Info: STRUCTURE SUMMARY:
+Info: 208974 ATOMS
+Info: 171155 BONDS
+Info: 58726 ANGLES
+Info: 30815 DIHEDRALS
+Info: 1761 IMPROPERS
+Info: 719 CROSSTERMS
+Info: 0 EXCLUSIONS
+Info: 118812 RIGID BONDS
+Info: 40250 LONE PAIRS
+Info: 43812 DRUDE ATOMS
+Info: 387360 DEGREES OF FREEDOM
+Info: 255924 DRUDE COM DEGREES OF FREEDOM
+Info: 131436 DRUDE BOND DEGREES OF FREEDOM
+Info: 43812 HYDROGEN GROUPS
+Info: 5 ATOMS IN LARGEST HYDROGEN GROUP
+Info: 41464 MIGRATION GROUPS
+Info: 19 ATOMS IN LARGEST MIGRATION GROUP
+Info: TOTAL MASS = 771382 amu
+Info: TOTAL CHARGE = -6.18752e-05 e
+Info: MASS DENSITY = 0.962389 g/cm^3
+Info: ATOM DENSITY = 0.157005 atoms/A^3
+Info: *****************************
+Info: 
+Info: Entering startup at 4.19572 s, 123.027 MB of memory in use
+Info: Startup phase 0 took 0.000556136 s, 123.027 MB of memory in use
+Info: ADDED 589462 IMPLICIT EXCLUSIONS
+Info: Startup phase 1 took 0.23206 s, 179.496 MB of memory in use
+Info: NONBONDED TABLE R-SQUARED SPACING: 0.0625
+Info: NONBONDED TABLE SIZE: 769 POINTS
+Info: ABSOLUTE IMPRECISION IN FAST TABLE FORCE: 2.64698e-23 AT 11.9138
+Info: RELATIVE IMPRECISION IN FAST TABLE FORCE: 1.40436e-16 AT 11.9138
+Info: INCONSISTENCY IN FAST TABLE ENERGY VS FORCE: 0.000325096 AT 11.9556
+Info: ABSOLUTE IMPRECISION IN SCOR TABLE FORCE: 4.10282e-22 AT 11.9138
+Info: RELATIVE IMPRECISION IN SCOR TABLE FORCE: 3.56912e-15 AT 11.9138
+Info: INCONSISTENCY IN SCOR TABLE ENERGY VS FORCE: 0.000324844 AT 11.9556
+Info: ABSOLUTE IMPRECISION IN VDWA TABLE ENERGY: 9.86076e-32 AT 11.8295
+Info: RELATIVE IMPRECISION IN VDWA TABLE ENERGY: 6.75473e-14 AT 11.9138
+Info: ABSOLUTE IMPRECISION IN VDWA TABLE FORCE: 4.62223e-32 AT 11.9138
+Info: RELATIVE IMPRECISION IN VDWA TABLE FORCE: 2.12237e-15 AT 11.9138
+Info: INCONSISTENCY IN VDWA TABLE ENERGY VS FORCE: 0.0040507 AT 0.251946
+Info: ABSOLUTE IMPRECISION IN VDWB TABLE ENERGY: 4.1359e-25 AT 11.8295
+Info: RELATIVE IMPRECISION IN VDWB TABLE ENERGY: 7.56853e-15 AT 11.9138
+Info: ABSOLUTE IMPRECISION IN VDWB TABLE FORCE: 3.87741e-26 AT 11.9138
+Info: RELATIVE IMPRECISION IN VDWB TABLE FORCE: 5.97409e-16 AT 11.9138
+Info: INCONSISTENCY IN VDWB TABLE ENERGY VS FORCE: 0.00150189 AT 0.251946
+Info: Startup phase 2 took 0.00229788 s, 179.496 MB of memory in use
+Info: Startup phase 3 took 3.8837e-05 s, 179.496 MB of memory in use
+Info: Startup phase 4 took 0.000346224 s, 179.496 MB of memory in use
+Info: Startup phase 5 took 4.0252e-05 s, 179.496 MB of memory in use
+Info: PATCH GRID IS 5 (PERIODIC) BY 5 (PERIODIC) BY 5 (PERIODIC)
+Info: PATCH GRID IS 1-AWAY BY 1-AWAY BY 1-AWAY
+Info: REMOVING COM VELOCITY 0.0225769 -0.00224555 0.030186
+Info: LARGEST PATCH (61) HAS 1938 ATOMS
+Info: TORUS A SIZE 1 USING 0
+Info: TORUS B SIZE 1 USING 0
+Info: TORUS C SIZE 1 USING 0
+Info: TORUS MINIMAL MESH SIZE IS 1 BY 1 BY 1
+Info: Placed 100% of base nodes on same physical node as patch
+Info: Startup phase 6 took 0.0804774 s, 218.023 MB of memory in use
+Info: PME using 1 and 1 processors for FFT and reciprocal sum.
+Info: PME GRID LOCATIONS: 0
+Info: PME TRANS LOCATIONS: 0
+Info: PME USING 1 GRID NODES AND 1 TRANS NODES
+Info: Optimizing 4 FFT steps.  1... 2... 3... 4...   Done.
+Info: Startup phase 7 took 0.00244123 s, 218.023 MB of memory in use
+Info: Startup phase 8 took 7.7204e-05 s, 218.023 MB of memory in use
+Info: Startup phase 9 took 2.8709e-05 s, 218.023 MB of memory in use
+Info: Startup phase 10 took 2.2073e-05 s, 218.023 MB of memory in use
+Info: Startup phase 11 took 2.4212e-05 s, 218.023 MB of memory in use
+LDB: Central LB being created...
+Info: Startup phase 12 took 0.000134484 s, 218.023 MB of memory in use
+Info: CREATING 2757 COMPUTE OBJECTS
+Info: Startup phase 13 took 0.00958285 s, 218.836 MB of memory in use
+Info: Startup phase 14 took 0.000109065 s, 218.836 MB of memory in use
+Info: Startup phase 15 took 0.000374513 s, 234.641 MB of memory in use
+Info: Finished startup at 4.52433 s, 234.641 MB of memory in use
+
+TCL: Minimizing for 0 steps
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG            PRESSURE      GPRESSURE         VOLUME       PRESSAVG      GPRESSAVG           DRUDEBOND      DRBONDAVG
+
+ENERGY:       0    149954.9901     11897.4811      6889.2417       177.9768        -703661.0806     92527.1453         0.0000         0.0000         0.0000        -442214.2457         0.0000   -442214.2457   -442214.2457         0.0000          29406.3760    -45933.9390   1331000.0000     29406.3760    -45933.9390              0.0000         0.0000
+
+OPENING EXTENDED SYSTEM TRAJECTORY FILE
+WRITING EXTENDED SYSTEM TO OUTPUT FILE AT STEP 0
+CLOSING EXTENDED SYSTEM TRAJECTORY FILE
+WRITING COORDINATES TO OUTPUT FILE AT STEP 0
+COORDINATE DCD FILE step4_equilibration.dcd WAS NOT CREATED
+The last position output (seq=-2) takes 0.012 seconds, 381.191 MB of memory in use
+WRITING VELOCITIES TO OUTPUT FILE AT STEP 0
+The last velocity output (seq=-2) takes 0.004 seconds, 381.191 MB of memory in use
+====================================================
+
+WallClock: 10.661716  CPUTime: 10.649892  Memory: 381.191406 MB
+[Partition 0][Node 0] End of program

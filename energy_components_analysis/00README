@@ -1,0 +1,19 @@
+# copy the step2_drude files from your drude prepper output to template
+
+$ cp <path_to_drude_prepper_output>/step2_drude* ./template/
+$ cd template
+
+# for charmm energy components
+
+$ <path_to_charmm> -i charmm_energy.inp > charmm_energy.out 
+$ cat charmm.ener.txt
+
+# for namd energy components
+
+$ <path_to_namd2> namd_energy.inp > namd_energy.out
+$ ./extract.sh
+
+# for openmm energy components
+
+$ ./README
+$ cat openmm_energy.1.out openmm_energy.2.out
